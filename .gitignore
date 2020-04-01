@@ -1,0 +1,14 @@
+.classpath
+.project
+.settings
+eclipse
+.idea
+*.iml
+*.ipr
+*.iws
+
+build
+.gradle
+out
+
+*-private.sh
