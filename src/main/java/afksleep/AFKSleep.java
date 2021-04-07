@@ -58,7 +58,7 @@ public class AFKSleep extends JavaPlugin {
 
     private boolean hasMovedSignificantly(Location loc1, Location loc2) {
         return loc1.getWorld() != loc2.getWorld()
-                || loc1.distanceSquared(loc2) > 25
+                || loc1.distanceSquared(loc2) > 5 * 5
                 || loc1.getYaw() != loc2.getYaw()
                 || loc1.getPitch() != loc2.getPitch();
     }

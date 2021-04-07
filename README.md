@@ -12,8 +12,8 @@ Inactivity in this plugin is defined as: Not moving the mouse, and not moving mo
 # Compiling
 Create the jar with
 
-`./gradlew jar`
+`mvn`
 
 the jar will be exported to
 
-`build/libs/AFKSleep-?.?.jar`
+`target/afksleep-*.jar`

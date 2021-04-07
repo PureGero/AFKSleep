@@ -10,5 +10,6 @@ eclipse
 build
 .gradle
 out
+target
 
 *-private.sh
