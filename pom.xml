@@ -6,7 +6,7 @@
 
     <groupId>net.justminecraft.afksleep</groupId>
     <artifactId>afksleep</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <description>Ignores afk players when players try to sleep</description>
 
     <name>AFKSleep</name>
