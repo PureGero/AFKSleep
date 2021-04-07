@@ -1,5 +1,7 @@
 package net.justminecraft.afksleep;
 
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -23,6 +25,9 @@ public class AFKSleep extends JavaPlugin {
         saveDefaultConfig();
         getConfig().options().copyDefaults(true);
         AFK_TIMEOUT_SECONDS = getConfig().getInt("afk-timeout-seconds");
+
+        Metrics metrics = new Metrics(this, 10963);
+        metrics.addCustomChart(new SimplePie("afk_timeout", () -> Integer.toString(AFK_TIMEOUT_SECONDS)));
         
         this.getServer().getScheduler().runTaskTimer(this, this::checkAfkTick, 20L, 20L);
     }
