@@ -1,4 +1,7 @@
-name: AFKSleep
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
 main: afksleep.AFKSleep
-version: 0.0.1
 api-version: 1.13
+author: PureGero
+website: https://github.com/PureGero/AFKSleep

@@ -10,6 +10,8 @@ import java.util.UUID;
 
 public class AFKSleep extends JavaPlugin {
 
+    private static int AFK_TIMEOUT_SECONDS = 60; 
+    
     // Last recorded location of each player
     private HashMap<UUID, Location> lastLocations = new HashMap<>();
 
@@ -18,6 +20,10 @@ public class AFKSleep extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+        getConfig().options().copyDefaults(true);
+        AFK_TIMEOUT_SECONDS = getConfig().getInt("afk-timeout-seconds");
+        
         this.getServer().getScheduler().runTaskTimer(this, this::checkAfkTick, 20L, 20L);
     }
 
@@ -44,15 +50,11 @@ public class AFKSleep extends JavaPlugin {
         Location currentLocation = player.getLocation();
 
         if (hasMovedSignificantly(lastLocation, currentLocation)) {
-
             lastLocations.put(uuid, currentLocation);
             lastActiveTimes.put(uuid, System.currentTimeMillis());
             player.setSleepingIgnored(false);
-
-        } else if (lastActive < System.currentTimeMillis() - 60*1000L) {
-
+        } else if (lastActive < System.currentTimeMillis() - AFK_TIMEOUT_SECONDS * 1000L) {
             player.setSleepingIgnored(true);
-
         }
     }
 

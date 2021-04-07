@@ -1,2 +1,2 @@
 # The length of inactivity before someone is declared afk (in seconds)
-afk-timeout: 60
+afk-timeout-seconds: 60
